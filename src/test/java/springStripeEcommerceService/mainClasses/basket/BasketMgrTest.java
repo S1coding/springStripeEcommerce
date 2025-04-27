@@ -1,11 +1,8 @@
-package ecommerceService.springStripeEcommerceService.basket;
+package springStripeEcommerceService.mainClasses.basket;
 
 
-import adidasCopy.adidasCopyBackEnd.account.AccountEntity;
-import adidasCopy.adidasCopyBackEnd.basket.BasketEntity;
-import adidasCopy.adidasCopyBackEnd.basket.BasketRepo;
-import adidasCopy.adidasCopyBackEnd.basket.service.helper.BasketIdGenerator;
-import adidasCopy.adidasCopyBackEnd.basket.service.helper.BasketMgr;
+import springStripeEcommerceService.mainClasses.basket.service.helper.BasketIdGenerator;
+import springStripeEcommerceService.mainClasses.basket.service.helper.BasketMgr;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -14,12 +11,9 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.*;
-import java.util.stream.Collectors;
 
-import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)

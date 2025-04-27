@@ -1,22 +1,18 @@
-package adidasCopy.adidasCopyBackEnd.security;
+package springStripeEcommerceService.mainClasses.security;
 
-import adidasCopy.adidasCopyBackEnd.security.accountconfiguration.UserDetailsMapperService;
-import adidasCopy.adidasCopyBackEnd.security.jwtfilter.JwtAuthFilter;
+import springStripeEcommerceService.mainClasses.security.accountconfiguration.UserDetailsMapperService;
+import springStripeEcommerceService.mainClasses.security.jwtfilter.JwtAuthFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.ProviderManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
-import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 

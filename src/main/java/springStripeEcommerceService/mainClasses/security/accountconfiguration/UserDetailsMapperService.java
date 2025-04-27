@@ -1,8 +1,7 @@
-package adidasCopy.adidasCopyBackEnd.security.accountconfiguration;
+package springStripeEcommerceService.mainClasses.security.accountconfiguration;
 
-import adidasCopy.adidasCopyBackEnd.account.AccountEntity;
-import adidasCopy.adidasCopyBackEnd.account.AccountRepo;
-import jakarta.persistence.EntityNotFoundException;
+import springStripeEcommerceService.mainClasses.account.AccountEntity;
+import springStripeEcommerceService.mainClasses.account.AccountRepo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

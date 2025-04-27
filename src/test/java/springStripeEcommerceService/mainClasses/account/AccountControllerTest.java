@@ -1,4 +1,4 @@
-package adidasCopy.adidasCopyBackEnd.account;
+package springStripeEcommerceService.mainClasses.account;
 
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 

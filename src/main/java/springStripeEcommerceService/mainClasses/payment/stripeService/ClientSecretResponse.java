@@ -1,4 +1,4 @@
-package adidasCopy.adidasCopyBackEnd.payment.stripeService;
+package springStripeEcommerceService.mainClasses.payment.stripeService;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

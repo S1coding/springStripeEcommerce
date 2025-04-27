@@ -1,7 +1,7 @@
-package adidasCopy.adidasCopyBackEnd.security.jwtfilter;
+package springStripeEcommerceService.mainClasses.security.jwtfilter;
 
-import adidasCopy.adidasCopyBackEnd.security.accountconfiguration.UserDetailsMapper;
-import adidasCopy.adidasCopyBackEnd.security.accountconfiguration.UserDetailsMapperService;
+import springStripeEcommerceService.mainClasses.security.accountconfiguration.UserDetailsMapper;
+import springStripeEcommerceService.mainClasses.security.accountconfiguration.UserDetailsMapperService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -13,6 +13,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.filter.OncePerRequestFilter;
+
 import java.io.IOException;
 
 public class JwtAuthFilter extends OncePerRequestFilter {

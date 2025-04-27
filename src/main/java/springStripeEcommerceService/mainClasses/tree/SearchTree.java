@@ -1,6 +1,6 @@
-package adidasCopy.adidasCopyBackEnd.tree;
+package springStripeEcommerceService.mainClasses.tree;
 
-import adidasCopy.adidasCopyBackEnd.item.ItemEntity;
+import springStripeEcommerceService.mainClasses.item.ItemEntity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -1,4 +1,4 @@
-package adidasCopy.adidasCopyBackEnd.security.jwtfilter;
+package springStripeEcommerceService.mainClasses.security.jwtfilter;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

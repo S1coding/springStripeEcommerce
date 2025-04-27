@@ -1,7 +1,7 @@
-package adidasCopy.adidasCopyBackEnd.basket.service.helper;
+package springStripeEcommerceService.mainClasses.basket.service.helper;
 
-import adidasCopy.adidasCopyBackEnd.basket.BasketEntity;
-import adidasCopy.adidasCopyBackEnd.basket.BasketRepo;
+import springStripeEcommerceService.mainClasses.basket.BasketEntity;
+import springStripeEcommerceService.mainClasses.basket.BasketRepo;
 import jakarta.persistence.EntityNotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,7 +25,7 @@ public class BasketMgr {
 
 	//testing, all children are testing, just have to setup test for overall function, will be long
 	public BasketEntity ensureOneActiveBasketByEmail(String email) {
-		logger.info("ensuring there is one active basket for {}", email);
+		logger.info("Ensuring there is one active basket for {}", email);
 		if (noActiveBaskets(email)) {
 			logger.warn("There are no active baskets, making sure there is one active basket");
 			return makeActiveBasketForEmail(email);
@@ -42,11 +42,14 @@ public class BasketMgr {
 	}
 
 	public BasketEntity checkOutActiveBasket(String email){
+		logger.info("checking out for email {}", email);
 		BasketEntity basket = basketRepo.findFirstByEmailAndActiveTrue(email)
 				.orElseThrow(()-> new NoSuchElementException("User has no active baskets"));
+		logger.info("received basket with id {}", basket.getUniqueId());
 		basket.setActive(false);
 		basket.setDateBought(LocalDateTime.now());
 		basketRepo.save(basket);
+		ensureOneActiveBasketByEmail(email); //added later to make sure checkout gives new basket after user checks out basket
 		return basket;
 
 	}

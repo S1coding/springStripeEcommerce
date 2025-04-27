@@ -1,4 +1,4 @@
-package adidasCopy.adidasCopyBackEnd.security.jwtfilter;
+package springStripeEcommerceService.mainClasses.security.jwtfilter;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;

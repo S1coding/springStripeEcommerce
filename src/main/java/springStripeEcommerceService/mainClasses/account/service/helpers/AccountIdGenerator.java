@@ -1,6 +1,6 @@
-package adidasCopy.adidasCopyBackEnd.account.service.helpers;
+package springStripeEcommerceService.mainClasses.account.service.helpers;
 
-import adidasCopy.adidasCopyBackEnd.account.AccountRepo;
+import springStripeEcommerceService.mainClasses.account.AccountRepo;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;

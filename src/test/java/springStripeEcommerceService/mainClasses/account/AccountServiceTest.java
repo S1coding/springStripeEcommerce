@@ -1,7 +1,7 @@
-package adidasCopy.adidasCopyBackEnd.account;
+package springStripeEcommerceService.mainClasses.account;
 
 
-import adidasCopy.adidasCopyBackEnd.account.service.AccountService;
+import springStripeEcommerceService.mainClasses.account.service.AccountService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;

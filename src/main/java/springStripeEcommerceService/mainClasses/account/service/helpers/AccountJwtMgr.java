@@ -1,8 +1,8 @@
-package adidasCopy.adidasCopyBackEnd.account.service.helpers;
+package springStripeEcommerceService.mainClasses.account.service.helpers;
 
-import adidasCopy.adidasCopyBackEnd.account.Login;
-import adidasCopy.adidasCopyBackEnd.security.jwtfilter.JwtResponse;
-import adidasCopy.adidasCopyBackEnd.security.jwtfilter.JwtUtil;
+import springStripeEcommerceService.mainClasses.account.Login;
+import springStripeEcommerceService.mainClasses.security.jwtfilter.JwtResponse;
+import springStripeEcommerceService.mainClasses.security.jwtfilter.JwtUtil;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.slf4j.Logger;

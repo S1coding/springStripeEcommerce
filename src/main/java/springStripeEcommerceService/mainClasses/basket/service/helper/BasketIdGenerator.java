@@ -1,6 +1,6 @@
-package adidasCopy.adidasCopyBackEnd.basket.service.helper;
+package springStripeEcommerceService.mainClasses.basket.service.helper;
 
-import adidasCopy.adidasCopyBackEnd.basket.BasketRepo;
+import springStripeEcommerceService.mainClasses.basket.BasketRepo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

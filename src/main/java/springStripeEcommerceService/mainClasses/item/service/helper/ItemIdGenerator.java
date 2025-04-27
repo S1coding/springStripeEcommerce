@@ -1,6 +1,6 @@
-package adidasCopy.adidasCopyBackEnd.item.service.helper;
+package springStripeEcommerceService.mainClasses.item.service.helper;
 
-import adidasCopy.adidasCopyBackEnd.item.ItemRepo;
+import springStripeEcommerceService.mainClasses.item.ItemRepo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

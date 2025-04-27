@@ -1,15 +1,15 @@
-package adidasCopy.adidasCopyBackEnd.account.service;
+package springStripeEcommerceService.mainClasses.account.service;
 
-import adidasCopy.adidasCopyBackEnd.account.AccountEntity;
-import adidasCopy.adidasCopyBackEnd.account.AccountRepo;
-import adidasCopy.adidasCopyBackEnd.account.Login;
-import adidasCopy.adidasCopyBackEnd.account.Register;
-import adidasCopy.adidasCopyBackEnd.account.service.helpers.AccountMgr;
-import adidasCopy.adidasCopyBackEnd.account.service.helpers.AccountIdGenerator;
-import adidasCopy.adidasCopyBackEnd.account.service.helpers.AccountJwtMgr;
-import adidasCopy.adidasCopyBackEnd.basket.BasketEntity;
-import adidasCopy.adidasCopyBackEnd.basket.BasketRepo;
-import adidasCopy.adidasCopyBackEnd.security.jwtfilter.JwtResponse;
+import springStripeEcommerceService.mainClasses.account.AccountEntity;
+import springStripeEcommerceService.mainClasses.account.AccountRepo;
+import springStripeEcommerceService.mainClasses.account.Login;
+import springStripeEcommerceService.mainClasses.account.Register;
+import springStripeEcommerceService.mainClasses.account.service.helpers.AccountMgr;
+import springStripeEcommerceService.mainClasses.account.service.helpers.AccountIdGenerator;
+import springStripeEcommerceService.mainClasses.account.service.helpers.AccountJwtMgr;
+import springStripeEcommerceService.mainClasses.basket.BasketEntity;
+import springStripeEcommerceService.mainClasses.basket.BasketRepo;
+import springStripeEcommerceService.mainClasses.security.jwtfilter.JwtResponse;
 import jakarta.persistence.EntityExistsException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -1,4 +1,4 @@
-package adidasCopy.adidasCopyBackEnd.basket;
+package springStripeEcommerceService.mainClasses.basket;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

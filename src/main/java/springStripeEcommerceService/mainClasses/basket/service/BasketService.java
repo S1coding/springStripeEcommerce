@@ -1,15 +1,15 @@
-package adidasCopy.adidasCopyBackEnd.basket.service;
+package springStripeEcommerceService.mainClasses.basket.service;
 
-import adidasCopy.adidasCopyBackEnd.account.AccountRepo;
-import adidasCopy.adidasCopyBackEnd.basket.BasketEntity;
-import adidasCopy.adidasCopyBackEnd.basket.BasketRepo;
-import adidasCopy.adidasCopyBackEnd.basket.OrderEntity;
-import adidasCopy.adidasCopyBackEnd.basket.OrderRepo;
-import adidasCopy.adidasCopyBackEnd.basket.service.helper.BasketMgr;
-import adidasCopy.adidasCopyBackEnd.item.ItemEntity;
-import adidasCopy.adidasCopyBackEnd.item.ItemRepo;
-import adidasCopy.adidasCopyBackEnd.item.service.helper.ItemMgr;
-import adidasCopy.adidasCopyBackEnd.security.SecurityUtils;
+import springStripeEcommerceService.mainClasses.account.AccountRepo;
+import springStripeEcommerceService.mainClasses.basket.BasketEntity;
+import springStripeEcommerceService.mainClasses.basket.BasketRepo;
+import springStripeEcommerceService.mainClasses.basket.OrderEntity;
+import springStripeEcommerceService.mainClasses.basket.OrderRepo;
+import springStripeEcommerceService.mainClasses.basket.service.helper.BasketMgr;
+import springStripeEcommerceService.mainClasses.item.ItemEntity;
+import springStripeEcommerceService.mainClasses.item.ItemRepo;
+import springStripeEcommerceService.mainClasses.item.service.helper.ItemMgr;
+import springStripeEcommerceService.mainClasses.security.SecurityUtils;
 import jakarta.persistence.EntityNotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,7 +18,6 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.NoSuchElementException;
 import java.util.UUID;
 
 @Service

@@ -1,11 +1,11 @@
-package adidasCopy.adidasCopyBackEnd.basket;
+package springStripeEcommerceService.mainClasses.basket;
 
-import adidasCopy.adidasCopyBackEnd.account.AccountRepo;
-import adidasCopy.adidasCopyBackEnd.basket.service.BasketService;
-import adidasCopy.adidasCopyBackEnd.basket.service.ItemToBuy;
-import adidasCopy.adidasCopyBackEnd.basket.service.ItemToDelete;
-import adidasCopy.adidasCopyBackEnd.item.ItemEntity;
-import adidasCopy.adidasCopyBackEnd.item.ItemRepo;
+import springStripeEcommerceService.mainClasses.account.AccountRepo;
+import springStripeEcommerceService.mainClasses.basket.service.BasketService;
+import springStripeEcommerceService.mainClasses.basket.service.ItemToBuy;
+import springStripeEcommerceService.mainClasses.basket.service.ItemToDelete;
+import springStripeEcommerceService.mainClasses.item.ItemEntity;
+import springStripeEcommerceService.mainClasses.item.ItemRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

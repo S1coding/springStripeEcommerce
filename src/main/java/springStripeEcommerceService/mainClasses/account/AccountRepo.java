@@ -1,6 +1,5 @@
-package adidasCopy.adidasCopyBackEnd.account;
+package springStripeEcommerceService.mainClasses.account;
 
-import adidasCopy.adidasCopyBackEnd.item.ItemEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

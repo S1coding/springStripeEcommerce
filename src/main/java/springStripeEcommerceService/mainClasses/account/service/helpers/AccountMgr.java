@@ -1,10 +1,10 @@
-package adidasCopy.adidasCopyBackEnd.account.service.helpers;
+package springStripeEcommerceService.mainClasses.account.service.helpers;
 
-import adidasCopy.adidasCopyBackEnd.account.AccountEntity;
-import adidasCopy.adidasCopyBackEnd.account.AccountRepo;
-import adidasCopy.adidasCopyBackEnd.account.Register;
-import adidasCopy.adidasCopyBackEnd.basket.BasketEntity;
-import adidasCopy.adidasCopyBackEnd.basket.service.helper.BasketIdGenerator;
+import springStripeEcommerceService.mainClasses.account.AccountEntity;
+import springStripeEcommerceService.mainClasses.account.AccountRepo;
+import springStripeEcommerceService.mainClasses.account.Register;
+import springStripeEcommerceService.mainClasses.basket.BasketEntity;
+import springStripeEcommerceService.mainClasses.basket.service.helper.BasketIdGenerator;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;

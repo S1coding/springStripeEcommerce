@@ -1,4 +1,4 @@
-package adidasCopy.adidasCopyBackEnd.basket.service;
+package springStripeEcommerceService.mainClasses.basket.service;
 
 import lombok.Data;
 

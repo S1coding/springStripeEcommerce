@@ -1,10 +1,10 @@
-package ecommerceService.springStripeEcommerceService;
+package springStripeEcommerceService.mainClasses;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class AdidasCopyBackEndApplicationTests {
+class SpringStripeEcommerceServiceApplicationTests {
 
 	@Test
 	void contextLoads() {

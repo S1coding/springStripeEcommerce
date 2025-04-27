@@ -1,4 +1,4 @@
-package adidasCopy.adidasCopyBackEnd.basket;
+package springStripeEcommerceService.mainClasses.basket;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

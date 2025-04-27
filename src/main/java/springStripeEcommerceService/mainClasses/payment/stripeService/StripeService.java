@@ -1,7 +1,9 @@
-package adidasCopy.adidasCopyBackEnd.payment.stripeService;
+package springStripeEcommerceService.mainClasses.payment.stripeService;
 
-import adidasCopy.adidasCopyBackEnd.basket.service.BasketService;
-import adidasCopy.adidasCopyBackEnd.item.ItemEntity;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import springStripeEcommerceService.mainClasses.basket.service.BasketService;
+import springStripeEcommerceService.mainClasses.item.ItemEntity;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -38,11 +40,15 @@ public class StripeService {
 		Stripe.apiKey = stripeApiKey;
 	}
 
+	private final static Logger logger = LoggerFactory.getLogger(StripeService.class);
+
 	public String getClientSecret() throws StripeException, JsonProcessingException {
+		logger.info("Getting client secret");
 		return createPaymentIntent();
 	}
 
 	public String createPaymentIntent() throws StripeException, JsonProcessingException {
+		logger.info("Creating payment Intent");
 		List<ItemEntity> basketItems = getItemsFromAccountActiveBasket();
 		long cost = getCostInPenniesFromBasket();
 		Map<String, String> metadata = setRequiredMetadataFromItems(basketItems);
@@ -53,6 +59,7 @@ public class StripeService {
 	}
 
 	public void handleWebhook(String payload, String sigHeader) throws SignatureVerificationException, JsonProcessingException {
+		logger.info("Handling webhook");
 		Event event = Webhook.constructEvent(payload, sigHeader, webhookSecret);
 		String eventType = getEventTypeFromEvent(event);
 		JsonNode metadata = getMetadataFromPayload(payload);
@@ -61,41 +68,61 @@ public class StripeService {
 	}
 
 	private String getEventTypeFromEvent(Event event){
+		logger.info("Getting event type");
 		return event.getType();
 	}
 
 	private JsonNode getMetadataFromPayload(String payload) throws JsonProcessingException {
+		logger.info("Getting metadata from payload");
 		ObjectMapper mapper = new ObjectMapper();
 		JsonNode root = mapper.readTree(payload);
 		return root.path("data").path("object").path("metadata");
 	}
 
 	private String getEmailFromMetaData(JsonNode metadata){
+		logger.info("Getting email from metadata");
 		return Optional.ofNullable(metadata.path("userEmail").asText(null))
 				.orElseThrow(() -> new NoSuchElementException("UserEmail not in metaData"));
 	}
 
 
 	private void handlePaymentStatus(String email, Event event){
-		if(isPaymentSuccessful(event)){
+		logger.info("Checking payment status");
+		if(isPaymentIntentSuccessful(event)){
 			handleSuccessfulPayment(event, email);
 		} else{
-			if(isPaymentFailed(event)){
+			if(isPaymentIntentFailed(event)){
 				handleFailedPayment(event);
 			}
 		}
 	}
 
-	private boolean isPaymentSuccessful(Event event){
-		return event.getType().equals("payment_intent.succeeded") || event.getType().equals("charge.succeeded");
+	private boolean isPaymentIntentSuccessful(Event event){ //this is causing an issue you
+		logger.info("Payment status {}", event.getType());
+		return event.getType().equals("payment_intent.succeeded");
 
 	}
-	private boolean isPaymentFailed(Event event){
-		return event.getType().equals("charge.failed") || event.getType().equals("payment_intent.payment_failed");
+	private boolean isPaymentIntentFailed(Event event){
+		logger.info("Payment status {}", event.getType());
+		return event.getType().equals("payment_intent.payment_failed");
+	}
+
+	private ResponseEntity handleSuccessfulPayment(Event event, String email) { //THIS ISN'T RUNNING!!!
+		//System.out.println("Payment succeeded for: " + event.getId() + " " + event.getType());
+		logger.info("Handling successful payment for {}", email);
+		basketService.checkOutActiveBasket(email); //this function is not deleting old basket
+		return ResponseEntity.status(HttpStatus.OK).body("Payment succeeded for: " + event.getId());
+	}
+
+	private ResponseEntity handleFailedPayment(Event event) {
+		logger.info("Handling failed payment");
+		System.out.println("Payment failed for: " + event.getId());
+		return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Payment failed for: " + event.getId() + " " + event.getType());
 	}
 
 
 	private Map<String, Object> setParams(Map<String, String> metadata, long cost, List<Object> paymentMethodTypes){ //currency is gbp by default
+		logger.info("Setting params");
 		Map<String, Object> params = new HashMap<>();
 		params.put("metadata", metadata);
 		params.put("amount", cost);
@@ -105,25 +132,30 @@ public class StripeService {
 	}
 
 	private PaymentIntent makePaymentIntentFromParams(Map<String, Object> params) throws StripeException {
+		logger.info("Making payment intent from params");
 		PaymentIntent paymentIntent = PaymentIntent.create(params);
 		return paymentIntent;
 	}
 
 	private List<Object> setPaymentMethod(){
+		logger.info("Setting payment method");
 		List<Object> paymentMethodTypes = new ArrayList<>();
 		paymentMethodTypes.add("card");
 		return paymentMethodTypes;
 	}
 
 	private List<ItemEntity> getItemsFromAccountActiveBasket(){
+		logger.info("Getting items from account active basket");
 		return basketService.getAllActiveBasketItems();
 	}
 
 	private String getAccountEmail(){
+		logger.info("Getting account email from security context");
 		return SecurityContextHolder.getContext().getAuthentication().getName();
 	}
 
 	private Map<String, String> setRequiredMetadataFromItems(List<ItemEntity> items){ //this method can only be used by user client in controller, as securityContext is required
+		logger.info("Setting required meta data from items");
 		Map<String, String> metadata = new HashMap<>();
 		String email = getAccountEmail();
 		metadata.put("userEmail", email);
@@ -137,18 +169,8 @@ public class StripeService {
 	}
 
 	private long getCostInPenniesFromBasket(){
+		logger.info("Getting cost in pennies: {}", basketService.calculateBasketCostInPennies());
 		return basketService.calculateBasketCostInPennies();
 	}
 
-
-	private ResponseEntity handleSuccessfulPayment(Event event, String email) { //THIS ISN'T RUNNING!!!
-		System.out.println("Payment succeeded for: " + event.getId() + " " + event.getType());
-		basketService.checkOutActiveBasket(email); //this function is not deleting old basket
-		return ResponseEntity.status(HttpStatus.OK).body("Payment succeeded for: " + event.getId());
-	}
-
-	private ResponseEntity handleFailedPayment(Event event) {
-		System.out.println("Payment failed for: " + event.getId());
-		return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Payment failed for: " + event.getId() + " " + event.getType());
-	}
 }

@@ -1,7 +1,7 @@
-package adidasCopy.adidasCopyBackEnd.item.service.helper;
+package springStripeEcommerceService.mainClasses.item.service.helper;
 
-import adidasCopy.adidasCopyBackEnd.item.ItemEntity;
-import adidasCopy.adidasCopyBackEnd.item.ItemRepo;
+import springStripeEcommerceService.mainClasses.item.ItemEntity;
+import springStripeEcommerceService.mainClasses.item.ItemRepo;
 import jakarta.persistence.EntityNotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
-import java.util.UUID;
 
 @Component
 public class ItemMgr {

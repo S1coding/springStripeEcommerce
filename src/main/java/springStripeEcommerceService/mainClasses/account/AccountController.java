@@ -1,8 +1,8 @@
-package adidasCopy.adidasCopyBackEnd.account;
+package springStripeEcommerceService.mainClasses.account;
 
-import adidasCopy.adidasCopyBackEnd.account.service.AccountService;
-import adidasCopy.adidasCopyBackEnd.basket.service.BasketService;
-import adidasCopy.adidasCopyBackEnd.security.jwtfilter.JwtResponse;
+import springStripeEcommerceService.mainClasses.account.service.AccountService;
+import springStripeEcommerceService.mainClasses.basket.service.BasketService;
+import springStripeEcommerceService.mainClasses.security.jwtfilter.JwtResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
